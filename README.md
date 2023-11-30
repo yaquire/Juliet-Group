@@ -1,5 +1,6 @@
 ##Juliet-Group##
- CryptoCurrency App with database
+
+CryptoCurrency App with database
 
 *Have to use 2D lists to store the data*
 
@@ -24,12 +25,12 @@
 
 
 -SUBMISSION OF CODE-
- -<NAME> will be the one submitting
- -by: *1 February 2024*
- -Includes:
- []python file
- []Declaration of Integrity
- []Datasets
+-<NAME> will be the one submitting
+    -by: *1 February 2024*
+    -Includes:
+    `[]python file
+    []Declaration of Integrity
+    []Datasets
 
 
 
