@@ -27,9 +27,9 @@ CryptoCurrency App with database
 
 (NAME) will be the one submitti by: *1 February 2024*
 Includes;
-[ ]python file
-[ ]Declaration of Integrity
-[ ]Datasets
+-[ ]python file
+-[ ]Declaration of Integrity
+-[ ]Datasets
 
 
 
