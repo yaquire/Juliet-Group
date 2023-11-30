@@ -23,13 +23,15 @@ CryptoCurrency App with database
     - Can use librarys for these
     - These are unique ideas and must involve (FUNCTION)
 
--SUBMISSION OF CODE-
+- SUBMISSION OF CODE
 
 (NAME) will be the one submitti by: *1 February 2024*
 Includes;
--[ ]python file
--[ ]Declaration of Integrity
--[ ]Datasets
+
+
+- [ ]python file
+- [ ]Declaration of Integrity
+- [ ]Datasets
 
 
 
