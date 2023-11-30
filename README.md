@@ -26,7 +26,7 @@ CryptoCurrency App with database
 -SUBMISSION OF CODE-
 -(NAME) will be the one submitting
     -by: *1 February 2024*
-    -Includes:
+    -Includes;
 [ ]python file
 [ ]Declaration of Integrity
 [ ]Datasets
