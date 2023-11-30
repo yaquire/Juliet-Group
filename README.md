@@ -24,9 +24,9 @@ CryptoCurrency App with database
     - These are unique ideas and must involve (FUNCTION)
 
 -SUBMISSION OF CODE-
--(NAME) will be the one submitting
-    -by: *1 February 2024*
-    -Includes;
+
+(NAME) will be the one submitti by: *1 February 2024*
+Includes;
 [ ]python file
 [ ]Declaration of Integrity
 [ ]Datasets
