@@ -15,6 +15,9 @@ CryptoCurrency App with database
     - Only python coding
 
 6,7 are unique\n
+
+
+
 6. <NAME><IDEA> (NAME) (DATE COMPLETED)\n
 7. <NAME><IDEA> (NAME) (DATE COMPLETED)
    
