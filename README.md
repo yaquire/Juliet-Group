@@ -14,7 +14,7 @@ CryptoCurrency App with database
     - The marks for these the 2 group mates will share
     - Only python coding
 
-#6,7 are unique
+6,7 are unique
 6. <NAME><IDEA> (NAME) (DATE COMPLETED)
 7. <NAME><IDEA> (NAME) (DATE COMPLETED)
    
