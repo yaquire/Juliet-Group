@@ -14,11 +14,10 @@ CryptoCurrency App with database
     - The marks for these the 2 group mates will share
     - Only python coding
 
-6,7 are unique\n
+6,7 are unique
 
 
-
-6. <NAME><IDEA> (NAME) (DATE COMPLETED)\n
+6. <NAME><IDEA> (NAME) (DATE COMPLETED)
 7. <NAME><IDEA> (NAME) (DATE COMPLETED)
    
     - One person can do each (The other person doesn't have to know everything about it)
