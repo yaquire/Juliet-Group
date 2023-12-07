@@ -5,8 +5,8 @@ CryptoCurrency App with database
 *Have to use 2D lists to store the data*
 
 *8 Key Items*
-1. Display Cryptocurrency (NAME) (DATE COMPLETED)
-2. Add Cryptocurrency (NAME) (DATE COMPLETED)
+1. Display Cryptocurrency (Yaqube) (DATE COMPLETED)
+2. Add Cryptocurrency (Yaqube) (DATE COMPLETED)
 3. Amend Cryptocurrency (NAME) (DATE COMPLETED)
 4. Remove Cryptocurrency (NAME) (DATE COMPLETED)
 5. Cryptocurrency Portfolio Statement (NAME) (DATE COMPLETED)
