@@ -1,25 +1,15 @@
 #THIS IS THE MAIN FILE FOR THE PROJECT
-# file with the cryptos = cryptocurrencies.txt
+# file with the cryptos = cryptocurrencies .csv
 
 
 #THis is a test to see i can push to this branch
 #IMPORTANT#
 #FOR EACH PART use functions
 
-#This is the function for displaying the cryptocurrencies
-def displayingCryptos():
-    #The info will be taken from a txt file and the names will not be changed
-    filepath  = 'cryptocurrencies.txt'
-
-    file = open(filepath)
-    data = file.readlines()
-
-    print(data)
-    file.close()
 
 
 
-#This function  is the one that first displays
+#This is function 0 (StartUp) is the one that first displays
 def startUpOption():
     print('-'*50)
     print('Class 02 \n1. Yaqube \n2. Rushaun')
@@ -51,7 +41,7 @@ def startUpOption():
         except ValueError:
             print('Please Enter an Integer')
 
-
+        #check to see if the option is an integer
         if type(choice)==int:
             #to check if the option is between 1-7
             for item in optionsForInpput:
@@ -66,12 +56,39 @@ def startUpOption():
 
     return choice
 
+#This is function 1 (Display)
+#This is the function for displaying the cryptocurrencies
+def displayingCryptos():
+    #The info will be taken from a txt file and the names will not be changed
+    filepath  = 'cryptocurrencies .csv'
 
+    file = open(filepath)
+    data = file.readlines()
+    
+    #this splits each element into its own part in
+    newData =[]
+    
+    for item in data:
         
+        newItem=item.split(',')
+        newData.append(newItem)
+
+    for row in newData:
+        for col in row:
+            print(col,'',end='')
+        print()
+    
+    #print(newData)
+    
+    file.close()
+
+
 
 #Under these lines of code is the main code -------------
 
 #This is the STARTUP
 choiceFunction = startUpOption()
-
-displayingCryptos()
+print('-'*50)
+#this runs the function that the user has chosen 
+if choiceFunction ==1:
+    displayingCryptos()
