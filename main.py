@@ -17,4 +17,13 @@ def displayingCryptos():
     print(data)
     file.close()
 
+
+
+
+
+
+
+
+
+#Under these lines of code is the main code -------------
 displayingCryptos()
