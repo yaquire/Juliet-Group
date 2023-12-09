@@ -68,10 +68,18 @@ def displayingCryptos():
     
     file.close()
 
+def addingCryptos():
+    nameofCrypto = input('Enter Cryptocurrency Name: ')
+    
 #Under these lines of code is the main code -------------
 #This is the MAIN
+#this runs the function  that the user has chosen 
 choiceFunction = startUpOption()
 print('-'*50)
-#this runs the function that the user has chosen 
+#this runs function 1(DISPLAY)
 if choiceFunction ==1:
     displayingCryptos()
+
+#this runs function 2 (ADDing currencies)
+elif choiceFunction ==2:
+    addingCryptos()
