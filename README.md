@@ -7,11 +7,11 @@ CryptoCurrency App with database
 - ~~initial start up~~- (Yaqube)(9/12/23)
 
 *8 Key Items*
-1. Display Cryptocurrency (Yaqube) (DATE COMPLETED)
-2. Add Cryptocurrency (Yaqube) (DATE COMPLETED)
-3. Amend Cryptocurrency (Rushaun) (DATE COMPLETED)
-4. Remove Cryptocurrency (Rushaun) (DATE COMPLETED)
-5. Cryptocurrency Portfolio Statement (NAME) (DATE COMPLETED)
+1. ~~Display Cryptocurrency (Yaqube)~~ (9/12/23)
+3. Add Cryptocurrency (Yaqube) (DATE COMPLETED)
+4. Amend Cryptocurrency (Rushaun) (DATE COMPLETED)
+5. Remove Cryptocurrency (Rushaun) (DATE COMPLETED)
+6. Cryptocurrency Portfolio Statement (NAME) (DATE COMPLETED)
     - First 5 is group work (Both need to know what each person is doing)
     - The marks for these the 2 group mates will share
     - Only python coding
