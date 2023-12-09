@@ -1,13 +1,9 @@
 #THIS IS THE MAIN FILE FOR THE PROJECT
 # file with the cryptos = cryptocurrencies .csv
 
-
 #THis is a test to see i can push to this branch
 #IMPORTANT#
 #FOR EACH PART use functions
-
-
-
 
 #This is function 0 (StartUp) is the one that first displays
 def startUpOption():
