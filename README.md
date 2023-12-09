@@ -3,7 +3,8 @@
 CryptoCurrency App with database
 
 *Have to use 2D lists to store the data*
-- Main stuff and initial start up
+- Main stuff
+- --initial start up-- (Yaqube)(9/12/23)
 
 *8 Key Items*
 1. Display Cryptocurrency (Yaqube) (DATE COMPLETED)
