@@ -68,10 +68,7 @@ def displayingCryptos():
     
     file.close()
 
-
-
 #Under these lines of code is the main code -------------
-
 #This is the MAIN
 choiceFunction = startUpOption()
 print('-'*50)
