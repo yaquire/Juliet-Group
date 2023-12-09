@@ -19,11 +19,59 @@ def displayingCryptos():
 
 
 
+#This function  is the one that first displays
+def startUpOption():
+    print('-'*50)
+    print('Class 02 \n1. Yaqube \n2. Rushaun')
+    print('-'*50)
+    print('Cryptocurrency Portfolio Application Main Menu')
+    print('-'*50)
+
+    print('1. Display Cryptocurrency')
+    print('2. Add Cryptocurrency')
+    print('3. Amend Cryptocurrency')
+    print('4. Remove Cryptocurrency')
+    print('5. Crypto Portfolio Statement')
+    print('6. <Student input>')
+    print('7. <Student input>')
+    print('E. Exit Main Menu')
+    print('-'*50)
+
+    while True:
+        choice = input('Select an option:')
+        optionsForInpput = [1,2,3,4,5,6,7]
+        sum =0
+
+        if choice =='E' or choice =='e':
+            break
+        
+        try:
+            choice = int(choice)
+            
+        except ValueError:
+            print('Please Enter an Integer')
 
 
+        if type(choice)==int:
+            #to check if the option is between 1-7
+            for item in optionsForInpput:
+                
+                if choice == item:
+                    sum =1
+                
+            if sum ==1:
+                break
+            else:
+                    print('Not an option')
+
+    return choice
 
 
-
+        
 
 #Under these lines of code is the main code -------------
+
+#This is the STARTUP
+choiceFunction = startUpOption()
+
 displayingCryptos()
