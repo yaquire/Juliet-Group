@@ -1,3 +1,5 @@
+#csv file = 'cryptocurrencies.csv'
+
 #USE LOCALVARIABLES ALWAYS
 #This is function 0 (StartUp) is the one that first displays
 def startUpOption():
@@ -51,7 +53,7 @@ def startUpOption():
 def displayingCryptos():
     #The info will be taken from a txt file and the names will not be changed
     
-    with open('cryptocurrencies .csv') as file:
+    with open('cryptocurrencies.csv') as file:
         data = file.readlines()
     
     #this splits each element into its own part in
@@ -69,8 +71,24 @@ def displayingCryptos():
     file.close()
 
 def addingCryptos():
+    newCrypto = []
     nameofCrypto = input('Enter Cryptocurrency Name: ')
+    newCrypto.append(nameofCrypto)
+    marketCap = input('Enter the Market Cap of Crypto: ')
+    newCrypto.append(marketCap)
+    quantityBought = input('Enter quantity of Crypto bought = ')
+    newCrypto.append(quantityBought)
+    buyInPrice = input('Enter the Buy In Price of Crypto = ')
+    newCrypto.append(buyInPrice)
+    marketPrice = input('Enter the Market Price of Crypto = ')
+    newCrypto.append(marketPrice)
     
+    text = 'asdasd'
+
+    with open('cryptocurrencies.csv','w') as file:
+        data = file.write(text)
+    file.close()
+
 #Under these lines of code is the main code -------------
 #This is the MAIN
 #this runs the function  that the user has chosen 
