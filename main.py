@@ -62,6 +62,7 @@ def displayingCryptos():
         
         newItem=item.split(',')
         newData.append(newItem)
+    
     #this prints the data nicely
     for row in newData:
         for col in row:
@@ -98,7 +99,19 @@ def addingCryptos():
             data = file.write(item+',')
     file.close()
 
+def cryptoProfileStatement():
+    with open('cryptocurrencies.csv') as file:
+        data = file.readlines()
 
+    newData=[]
+    for item in data:
+        newItem=item.split(',')
+        newData.append(newItem)
+    
+    totalInvestmentSum=0
+    lengthData = len(newItem)
+    listInvesmentSumPercentage =[]
+    
 #Under these lines of code is the main code -------------
 #This is the MAIN
 #this runs the function  that the user has chosen 
@@ -114,3 +127,9 @@ elif choiceFunction ==2:
     displayingCryptos()
 
 #This runs function 3 (APPENDing cryptocurrencies)
+
+
+
+#This runs function 5 (Crypto Profile Statement)
+elif choiceFunction ==5:
+    cryptoProfileStatement()
