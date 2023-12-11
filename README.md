@@ -8,7 +8,7 @@ CryptoCurrency App with database
 
 *8 Key Items*
 1. ~~Display Cryptocurrency (Yaqube)~~ (9/12/23)
-3. Add Cryptocurrency (Yaqube) (DATE COMPLETED)
+3. ~~Add Cryptocurrency (Yaqube)~~ (12/12/23)
 4. Amend Cryptocurrency (Rushaun) (DATE COMPLETED)
 5. Remove Cryptocurrency (Rushaun) (DATE COMPLETED)
 6. Cryptocurrency Portfolio Statement (NAME) (DATE COMPLETED)
