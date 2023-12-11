@@ -71,7 +71,13 @@ def displayingCryptos():
     file.close()
 
 def addingCryptos():
-    newCrypto = []
+    with open('cryptocurrencies.csv','r') as file:
+        data = file.readlines()
+        numberofCryptosCurrently = str(len(data))
+    file.close()
+
+    newCrypto =[]
+    newCrypto.append(numberofCryptosCurrently)
     nameofCrypto = input('Enter Cryptocurrency Name: ')
     newCrypto.append(nameofCrypto)
     marketCap = input('Enter the Market Cap of Crypto: ')
@@ -83,11 +89,13 @@ def addingCryptos():
     marketPrice = input('Enter the Market Price of Crypto = ')
     newCrypto.append(marketPrice)
     
-    text = 'asdasd'
-
-    with open('cryptocurrencies.csv','w') as file:
-        data = file.write(text)
+    with open('cryptocurrencies.csv','a') as file:
+        for item in newCrypto:
+            data = file.write(item+',')
     file.close()
+
+
+    
 
 #Under these lines of code is the main code -------------
 #This is the MAIN
@@ -101,3 +109,7 @@ if choiceFunction ==1:
 #this runs function 2 (ADDing currencies)
 elif choiceFunction ==2:
     addingCryptos()
+    displayingCryptos()
+
+elif choiceFunction ==3:
+    ammendCryptos()
