@@ -8,16 +8,15 @@ CryptoCurrency App with database
 
 *8 Key Items*
 1. ~~Display Cryptocurrency (Yaqube)~~ (9/12/23)
-3. ~~Add Cryptocurrency (Yaqube)~~ (12/12/23)
-4. Amend Cryptocurrency (Rushaun) (DATE COMPLETED)
-5. Remove Cryptocurrency (Rushaun) (DATE COMPLETED)
-6. Cryptocurrency Portfolio Statement (NAME) (DATE COMPLETED)
+2. ~~Add Cryptocurrency (Yaqube)~~ (12/12/23)
+3. Amend Cryptocurrency (Rushaun) (DATE COMPLETED)
+4. Remove Cryptocurrency (Rushaun) (DATE COMPLETED)
+5. Cryptocurrency Portfolio Statement (Yaqube) (DATE COMPLETED) (i think iys better if we do together, or i finish this around week 2, term 2)
     - First 5 is group work (Both need to know what each person is doing)
     - The marks for these the 2 group mates will share
     - Only python coding
 
 6,7 are unique
-
 
 6. <NAME><IDEA> (NAME) (DATE COMPLETED)
 7. <NAME><IDEA> (NAME) (DATE COMPLETED)
@@ -32,12 +31,6 @@ CryptoCurrency App with database
 (NAME) will be the one submitti by: *1 February 2024*
 Includes;
 
-
 - [x]python file
 - [ ]Declaration of Integrity
 - [ ]Datasets
-
-
-
-
-
