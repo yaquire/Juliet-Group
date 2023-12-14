@@ -110,8 +110,35 @@ def cryptoProfileStatement():
     
     totalInvestmentSum=0
     lengthData = len(newItem)
-    listInvesmentSumPercentage =[]
+    totalInvestment =[]
+    with open('cryptocurrencies.csv') as file:
+        data = file.readlines()
     
+    #this splits each element into its own part in
+    newData =[]
+    for item in data:
+        
+        newItem=item.split(',')
+        newData.append(newItem)
+    #this prints the data nicely
+    for row in newData:
+        for col in row:
+            print(col,'',end='')
+        print()
+    
+    file.close()
+    
+    totalInvestment = 0
+    for i in range(1,len(newData)):
+        investmentItem = float(newData[i][3])*float(newData[i][4])
+        totalInvestment+=investmentItem
+
+    print(totalInvestment)
+
+
+
+
+
 #Under these lines of code is the main code -------------
 #This is the MAIN
 #this runs the function  that the user has chosen 
