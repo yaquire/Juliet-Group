@@ -18,7 +18,11 @@ CryptoCurrency App with database
 
 6,7 are unique
 
-6. <NAME><IDEA> (NAME) (DATE COMPLETED)
+6. <Yaqube><ScamAlert>(Yaqube) (DATE COMPLETED)
+    - Alot of cryptos tend to be rug pulls and are basically just scams so 
+    - This helps the user guage if the coin has;
+        - any real value that differenciats it from other cryptos
+        - the market value of the coin, & how realistic it is 
 7. <NAME><IDEA> (NAME) (DATE COMPLETED)
    
     - One person can do each (The other person doesn't have to know everything about it)
