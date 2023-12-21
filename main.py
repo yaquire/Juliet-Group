@@ -135,9 +135,9 @@ def cryptoProfileStatement():
 
     print(totalInvestment)
 
-
-
-
+def cryptoScamAlert(): #This is the 6th function by: Yaqube
+    with open('cryptocurrencies.csv','r') as file:
+        data = file.readlines()
 
 #Under these lines of code is the main code -------------
 #This is the MAIN
@@ -160,3 +160,7 @@ elif choiceFunction ==2:
 #This runs function 5 (Crypto Profile Statement)
 elif choiceFunction ==5:
     cryptoProfileStatement()
+
+#This runs function 6 (Crypto Scam Alert: Yaqube)
+elif choiceFunction ==6:
+    cryptoScamAlert()
