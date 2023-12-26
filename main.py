@@ -18,15 +18,15 @@ def startUpOption():
     print('7. <Student input>')
     print('E. Exit Main Menu')
     print('-'*50)
-
+    #This is the error correction script for the selection of the functions 
+    #Only works when input is 1-7 or E/e
     while True:
         choice = input('Select an option:')
         optionsForInpput = [1,2,3,4,5,6,7]
         sum =0
 
         if choice =='E' or choice =='e':
-            break
-        
+            break       
         try:
             choice = int(choice)
             
@@ -45,7 +45,7 @@ def startUpOption():
                 break
             else:
                     print('Not an option')
-
+    #choice is the number of the selcted function 
     return choice
 
 #This is function 1 (Display)
@@ -63,7 +63,16 @@ def displayingCryptos():
         newItem=item.split(',')
         newData.append(newItem)
     
-    #this prints the data nicely
+    #This is extra data for the portfolio that is not required to be shown here
+    try: 
+        for item in newData:
+            item.pop(6)
+            item.pop(6)
+            item.pop(6)
+    except IndexError: 
+        print()
+    
+    #this prints the data relatively nicely
     for row in newData:
         for col in row:
             print(col,'',end='')
@@ -86,17 +95,26 @@ def addingCryptos():
     newCrypto.append(nameofCrypto)
     marketCap = input('Enter the Market Cap of Crypto: ')
     newCrypto.append(marketCap)
-    quantityBought = input('Enter quantity of Crypto bought = ')
+    quantityBought = int(input('Enter quantity of Crypto bought = '))
     newCrypto.append(quantityBought)
-    buyInPrice = input('Enter the Buy In Price of Crypto = ')
+    buyInPrice = int(input('Enter the Buy In Price of Crypto = '))
     newCrypto.append(buyInPrice)
-    marketPrice = input('Enter the Market Price of Crypto = ')
+    marketPrice = int(input('Enter the Market Price of Crypto = '))
     newCrypto.append(marketPrice)
     
+    #This calculated the data here so 
+    singleTotalInvested = quantityBought * buyInPrice
+    newCrypto.append(singleTotalInvested)
+    singleCurrentValue = quantityBought * marketPrice
+    newCrypto.append(singleCurrentValue)
+    profitDifference = singleCurrentValue - singleTotalInvested
+    profitDifference = str(profitDifference)+'\n'
+    newCrypto.append(profitDifference)
+    newCrypto = str(newCrypto)
+    #Still gotta fix this end part of the code
     #this line is the one that will right the input data to the csv file
     with open('cryptocurrencies.csv','a') as file:
-        for item in newCrypto:
-            data = file.write(item+',')
+        data = file.write(newCrypto)
     file.close()
 
 def cryptoProfileStatement():
