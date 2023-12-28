@@ -90,31 +90,36 @@ def addingCryptos():
     #These lines record the user input to be later put into the csv file 
     #Added to a list as it is the easiest and most efficient way to add the data since the list itself cannot be added
     newCrypto =[]
-    newCrypto.append(numberofCryptosCurrently)
     nameofCrypto = input('Enter Cryptocurrency Name: ')
-    newCrypto.append(nameofCrypto)
     marketCap = input('Enter the Market Cap of Crypto: ')
-    newCrypto.append(marketCap)
     quantityBought = int(input('Enter quantity of Crypto bought = '))
-    newCrypto.append(quantityBought)
     buyInPrice = int(input('Enter the Buy In Price of Crypto = '))
-    newCrypto.append(buyInPrice)
     marketPrice = int(input('Enter the Market Price of Crypto = '))
-    newCrypto.append(marketPrice)
     
     #This calculated the data here so 
     singleTotalInvested = quantityBought * buyInPrice
-    newCrypto.append(singleTotalInvested)
     singleCurrentValue = quantityBought * marketPrice
-    newCrypto.append(singleCurrentValue)
     profitDifference = singleCurrentValue - singleTotalInvested
-    profitDifference = str(profitDifference)+'\n'
+    profitDifference = profitDifference
+
+    newCrypto.append(numberofCryptosCurrently)
+    newCrypto.append(nameofCrypto)
+    newCrypto.append(marketCap)
+    newCrypto.append(quantityBought)
+    newCrypto.append(buyInPrice)
+    newCrypto.append(marketPrice)
+    newCrypto.append(singleTotalInvested)
+    newCrypto.append(singleCurrentValue)
     newCrypto.append(profitDifference)
-    newCrypto = str(newCrypto)
+
+    n
+    
+    print(newCrypto)
     #Still gotta fix this end part of the code
     #this line is the one that will right the input data to the csv file
     with open('cryptocurrencies.csv','a') as file:
-        data = file.write(newCrypto)
+        for item in newCrypto:
+            data = file.writelines(item)
     file.close()
 
 def cryptoProfileStatement():
