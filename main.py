@@ -162,28 +162,32 @@ def cryptoScamAlert(): #This is the 6th function by: Yaqube
     with open('cryptocurrencies.csv','r') as file:
         data = file.readlines()
 
-#Under these lines of code is the main code -------------
-#This is the MAIN
-#this runs the function  that the user has chosen 
-choiceFunction = startUpOption()
-print('-'*50)
-#this runs function 1(DISPLAY)
-if choiceFunction ==1:
-    displayingCryptos()
 
-#this runs function 2 (ADDing currencies)
-elif choiceFunction ==2:
-    addingCryptos()
-    displayingCryptos()
+def main():
+    #Under these lines of code is the main code -------------
+    #This is the MAIN
+    #this runs the function  that the user has chosen 
+    choiceFunction = startUpOption()
+    print('-'*50)
+    #this runs function 1(DISPLAY)
+    if choiceFunction ==1:
+        displayingCryptos()
 
-#This runs function 3 (APPENDing cryptocurrencies)
+    #this runs function 2 (ADDing currencies)
+    elif choiceFunction ==2:
+        addingCryptos()
+        displayingCryptos()
+
+    #This runs function 3 (APPENDing cryptocurrencies)
 
 
 
-#This runs function 5 (Crypto Profile Statement)
-elif choiceFunction ==5:
-    cryptoProfileStatement()
+    #This runs function 5 (Crypto Profile Statement)
+    elif choiceFunction ==5:
+        cryptoProfileStatement()
 
-#This runs function 6 (Crypto Scam Alert: Yaqube)
-elif choiceFunction ==6:
-    cryptoScamAlert()
+    #This runs function 6 (Crypto Scam Alert: Yaqube)
+    elif choiceFunction ==6:
+        cryptoScamAlert()
+
+main()
