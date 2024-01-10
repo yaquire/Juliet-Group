@@ -11,7 +11,7 @@ CryptoCurrency App with database
 2. ~~Add Cryptocurrency (Yaqube)~~ (12/12/23)
 3. Amend Cryptocurrency (Rushaun) (DATE COMPLETED)
 4. Remove Cryptocurrency (Rushaun) (DATE COMPLETED)
-5. Cryptocurrency Portfolio Statement (Yaqube) (DATE COMPLETED) (i think iys better if we do together, or i finish this around week 2, term 2)
+5. Cryptocurrency Portfolio Statement (Yaqube) (10/1/24) (i think iys better if we do together, or i finish this around week 2, term 2)
     - First 5 is group work (Both need to know what each person is doing)
     - The marks for these the 2 group mates will share
     - Only python coding

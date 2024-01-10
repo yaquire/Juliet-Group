@@ -156,7 +156,7 @@ def cryptoProfileStatement():
         investmentItem = float(newData[i][3])*float(newData[i][4])
         totalInvestment+=investmentItem
 
-    print(totalInvestment)
+    print('Total Investment:',totalInvestment)
 
 def cryptoScamAlert(): #This is the 6th function by: Yaqube
     with open('cryptocurrencies.csv','r') as file:
