@@ -50,7 +50,7 @@ def startUpOption():
 
 #This is function 1 (Display)
 #This is the function for displaying the cryptocurrencies
-def displayingCryptos():
+def displayingCryptos(): #DONE 
     #The info will be taken from a txt file and the names will not be changed
     
     with open('cryptocurrencies.csv') as file:
@@ -80,7 +80,7 @@ def displayingCryptos():
     
     file.close()
 
-def addingCryptos():
+def addingCryptos(): #Still doing 
     #These lines read the code to see with crypto it is 
     with open('cryptocurrencies.csv','r') as file:
         data = file.readlines()
@@ -89,7 +89,7 @@ def addingCryptos():
 
     #These lines record the user input to be later put into the csv file 
     #Added to a list as it is the easiest and most efficient way to add the data since the list itself cannot be added
-    newCrypto =[]
+    
     nameofCrypto = input('Enter Cryptocurrency Name: ')
     marketCap = input('Enter the Market Cap of Crypto: ')
     quantityBought = int(input('Enter quantity of Crypto bought = '))
@@ -100,20 +100,9 @@ def addingCryptos():
     singleTotalInvested = quantityBought * buyInPrice
     singleCurrentValue = quantityBought * marketPrice
     profitDifference = singleCurrentValue - singleTotalInvested
-    profitDifference = profitDifference
-
-    newCrypto.append(numberofCryptosCurrently)
-    newCrypto.append(nameofCrypto)
-    newCrypto.append(marketCap)
-    newCrypto.append(quantityBought)
-    newCrypto.append(buyInPrice)
-    newCrypto.append(marketPrice)
-    newCrypto.append(singleTotalInvested)
-    newCrypto.append(singleCurrentValue)
-    newCrypto.append(profitDifference)
-
-    n
     
+
+    newCrypto = nameofCrypto+marketCap+str(quantityBought)+str(buyInPrice)+str(marketPrice)+str(singleTotalInvested)+str(singleCurrentValue)+str(profitDifference)
     print(newCrypto)
     #Still gotta fix this end part of the code
     #this line is the one that will right the input data to the csv file
@@ -122,7 +111,7 @@ def addingCryptos():
             data = file.writelines(item)
     file.close()
 
-def cryptoProfileStatement():
+def cryptoProfileStatement(): #DONE
     with open('cryptocurrencies.csv') as file:
         data = file.readlines()
 
@@ -157,6 +146,10 @@ def cryptoProfileStatement():
         totalInvestment+=investmentItem
 
     print('Total Investment:',totalInvestment)
+
+
+
+
 
 def cryptoScamAlert(): #This is the 6th function by: Yaqube
     with open('cryptocurrencies.csv','r') as file:
