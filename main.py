@@ -80,7 +80,7 @@ def displayingCryptos(): #DONE
     
     file.close()
 
-def addingCryptos(): #Still doing 
+def addingCryptos(): #DONE
     #These lines read the code to see with crypto it is 
     with open('cryptocurrencies.csv','r') as file:
         data = file.readlines()

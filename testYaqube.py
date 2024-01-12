@@ -13,20 +13,14 @@ marketPrice = int(input('Enter the Market Price of Crypto = '))
 singleTotalInvested = quantityBought * buyInPrice
 singleCurrentValue = quantityBought * marketPrice
 profitDifference = singleCurrentValue - singleTotalInvested
-profitDifference = str(profitDifference)+r'\n'
-
 
 comma = ','
-newCrypto = nameofCrypto+comma+marketCap+comma+str(quantityBought)+comma+str(buyInPrice)+comma +str(marketPrice)+comma+str(singleTotalInvested)+comma+str(singleCurrentValue)+comma+str(profitDifference)
-print(newCrypto)
+newCrypto = nameofCrypto+comma+marketCap+comma+str(quantityBought)+comma+str(buyInPrice)+comma +str(marketPrice)+comma+str(singleTotalInvested)+comma+str(singleCurrentValue)+comma+str(profitDifference)+'\n'
 
-
+data.append(newCrypto)
+print(data)
 
 with open('cryptocurrencies.csv','w') as file:
-    data = file.writelines(newCrypto)
+    data = file.writelines(data)
 file.close()
 
-with open('cryptocurrencies.csv','r') as file:
-    data = file.readlines()
-    print(data)
-file.close()
