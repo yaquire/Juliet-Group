@@ -115,7 +115,7 @@ def addingCryptos(): #DONE
 def ammendingCrypto():
 
     with open('cryptocurrencies.csv','r') as file:
-    data = file.readlines()
+        data = file.readlines()
     print(data)
     file.close()
 
@@ -125,8 +125,8 @@ def ammendingCrypto():
     optionsForInpput =[]
     print("-----------------------------------------")
     for item in data:
-    new_item = item.split(",")
-    newData.append(new_item)
+        new_item = item.split(",")
+        newData.append(new_item)
 
     print(int(new_item[0])-1,"- " + new_item[1])
     optionsForInpput.append(int(new_item[0])-1)
