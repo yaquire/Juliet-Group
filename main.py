@@ -127,9 +127,9 @@ def ammendingCrypto():
         new_item = item.split(",")
         newData.append(new_item)
 
-        print(int(new_item[0])-1,"- " + new_item[1])
+        print(int(new_item[0]),"- " + new_item[1])
         optionsForInpput.append(int(new_item[0])-1)
-
+    print(newData)
 
     print("----------------------------------------")
 
@@ -211,13 +211,20 @@ def ammendingCrypto():
     if selection == 5:
                 newMP=input('(5) Enter new Market Price of Crypto     :')
                 newData[choice][5] = newMP
-                   
-    print(singleItem)
+    #CHATGPT was used to help with this 
+    innerString = 'No,Name,Capitalization,QtyBought,Bought,Price,Current Price,Total Invested, Total Current Value, Profit_Loss\n'
     print(newData)
-
-
-    
-
+    #ADD the no,name line back
+    for item in newData:
+        for thing in item:
+            innerString+= str(thing)+','
+        innerString = innerString[:-1]
+    print(innerString)
+    with open('cryptocurrencies.csv','w') as file:
+        data = file.writelines('')
+        data = file.writelines(innerString)
+    file.close()
+    print('DONE!')
 
 
 
