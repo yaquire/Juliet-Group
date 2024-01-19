@@ -116,7 +116,6 @@ def ammendingCrypto():
 
     with open('cryptocurrencies.csv','r') as file:
         data = file.readlines()
-    print(data)
     file.close()
 
 
@@ -128,8 +127,8 @@ def ammendingCrypto():
         new_item = item.split(",")
         newData.append(new_item)
 
-    print(int(new_item[0])-1,"- " + new_item[1])
-    optionsForInpput.append(int(new_item[0])-1)
+        print(int(new_item[0])-1,"- " + new_item[1])
+        optionsForInpput.append(int(new_item[0])-1)
 
 
     print("----------------------------------------")
@@ -172,14 +171,14 @@ def ammendingCrypto():
     singleItem = newData[choice]
     while True:
             text = 'What do you want to edit : '
-            choice = input(text)
+            selection = input(text)
         
             sum =0
 
-            if choice =='E' or choice =='e':
+            if selection =='E' or selection =='e':
                 break       
             try:
-                choice = int(choice)
+                selection = int(selection)
             
             except ValueError:
                 print('Invalid Option, please try again.')
@@ -189,7 +188,7 @@ def ammendingCrypto():
                 #to check if the option is between 1-7
                 for item in optionsForInpput:
                 
-                    if choice == item:
+                    if selection == item:
                         sum =1
                 
             if sum ==1:
@@ -197,29 +196,29 @@ def ammendingCrypto():
             else:
                     print('Not an option')
 
-    if choice == 1:
+    if selection == 1:
                 newName=input('(1) Enter new Name of Crypto     :')
-                del newData[choice][1]
-                singleItem.insert(1,newName)
-    if choice == 2:
+                newData[choice][1] = newName
+    if selection == 2:
                 newMC=input('(2) Enter new Market Cap of Crypto     :')
-                del newData[choice][2]
-                singleItem.insert(2,newMC)
-    if choice == 3:
+                newData[choice][2] = newMC
+    if selection == 3:
                 newQB=input('(3) Enter new Quatity Bought of Crypto     :')
-                del newData[choice][3]
-                singleItem.insert(3,newQB)
-    if choice == 4:
+                newData[choice][3] = newQB
+    if selection == 4:
                 newBIP=input('(4) Enter new Buy In Price of Crypto     :')
-                del newData[choice][4]
-                singleItem.insert(4,newBIP)
-    if choice == 5:
+                newData[choice][4] = newBIP
+    if selection == 5:
                 newMP=input('(5) Enter new Market Price of Crypto     :')
-                del newData[choice][5]
-                singleItem.insert(5,newMP)
+                newData[choice][5] = newMP
                    
     print(singleItem)
     print(newData)
+
+
+    
+
+
 
 
 def cryptoProfileStatement(): #DONE
@@ -257,6 +256,7 @@ def cryptoProfileStatement(): #DONE
         totalInvestment+=investmentItem
 
     print('Total Investment:',totalInvestment)
+
 
 
 
