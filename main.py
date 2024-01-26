@@ -51,6 +51,7 @@ def startUpOption():
 #This is function 1 (Display)
 #This is the function for displaying the cryptocurrencies
 def displayingCryptos(): #DONE 
+
     #The info will be taken from a txt file and the names will not be changed
     
     with open('cryptocurrencies.csv') as file:
@@ -110,7 +111,6 @@ def addingCryptos(): #DONE
         for item in newCrypto:
             data = file.writelines(item)
     file.close()
-
 
 def ammendingCrypto():
 
@@ -336,12 +336,7 @@ def cryptoProfileStatement(): #DONE
 
     print('Total Investment:',totalInvestment)
 
-
-
-
-
-
-def cryptoScamAlert(): #This is the 6th function by: Yaqube
+def cryptoFilter(): #This is the 6th function by: Yaqube
     with open('cryptocurrencies.csv','r') as file:
         data = file.readlines()
 
@@ -374,6 +369,6 @@ def main():
 
     #This runs function 6 (Crypto Scam Alert: Yaqube)
     elif choiceFunction ==6:
-        cryptoScamAlert()
+        cryptoFilter()
 
 main()
