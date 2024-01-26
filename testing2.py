@@ -1,6 +1,6 @@
 with open('cryptocurrencies.csv','r') as file:
         data = file.readlines()
-
+file.close
 
 del data[0]
 newData = []
@@ -57,4 +57,20 @@ if option == 5:
                 del newData[option]
 #print(newData)
 print(newData)
-
+number =1
+for item in newData:
+        item[0] = number
+        number +=1 
+innerString = 'No,Name,Capitalization,QtyBought,Bought,Price,Current Price,Total Invested, Total Current Value, Profit_Loss\n'
+print(newData)
+    #ADD the no,name line back
+for item in newData:
+    for thing in item:
+        innerString+= str(thing)+','
+    innerString = innerString[:-1]
+    print(innerString)
+with open('test.csv','w') as file:
+    data = file.writelines('')
+    data = file.writelines(innerString)
+file.close()
+print('DONE!')
