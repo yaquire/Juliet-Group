@@ -5,6 +5,26 @@ class TextColor:
     YELLOW = '\033[93m'
     BLUE = '\033[94m'
     RESET = '\033[0m'  # Reset to default color
+def chosingTypeFilter(): 
+        print('-'*50)
+        print('What would you like to use?')
+        print('1. A Range\n2. Specific')
+        while True:
+                filterType = input('Please Enter you chose of Filter: ')
+
+                if filterType == '1' or filterType == '2':
+                        break
+                else:
+                        print(TextColor.RED+'ERROR'+TextColor.RESET)
+                        print('Please Enter 1 or 2')
+
+        return(filterType)
+        
+
+
+
+
+
 
 def Filtering():
         print('You have chosen '+TextColor.YELLOW+'FILTERING'+TextColor.RESET)
@@ -15,13 +35,25 @@ def Filtering():
                 print((i+1),titles[i])
 
                 possibleInput.append(str(i+1))
-        print(possibleInput)
+        print('-'*50)
         while True:
                 keyHole = input("Please Enter what will be the filter:")
+                
                 if keyHole in possibleInput:
                         break
                 else:
                         print(TextColor.RED + "INVALID VALUE\n try again"+TextColor.RESET)
+        filterType = chosingTypeFilter()
+        print(filterType)
+        
+        #RANGE
+        if filterType =='1':
+                print('What is your range: ')
+        #SPECIFIC
+        
+
+
+
 def Comparing():
         print('You have chosen '+TextColor.BLUE+'COMPARE'+TextColor.RESET)
 
@@ -97,4 +129,3 @@ if typeChoice =='1':
         Filtering()
 else:
         Comparing()
-
