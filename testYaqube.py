@@ -21,8 +21,21 @@ def chosingTypeFilter():
         return(filterType)
         
 
+def rangeing(possibleInput):
+        while True: 
+                        ranger = input('What is your range (2 - '+possibleInput[-1]+'): ')
+                        try:
+                                ranger=int(ranger)
+                                if ranger<=int(possibleInput[-1]-1) and ranger>1:
+                                        break
+                                else:
+                                        print(TextColor.RED+'ERROR!\nEnter number from (1 - '+possibleInput[-1]+TextColor.RESET)
+                                        continue
+                        except ValueError:
+                                print(TextColor.RED+'ERROR\nEnter integer!'+TextColor.RESET)
 
 
+        
 
 
 
@@ -44,39 +57,38 @@ def Filtering():
                 else:
                         print(TextColor.RED + "INVALID VALUE\n try again"+TextColor.RESET)
         filterType = chosingTypeFilter()
-        print(filterType)
+        #print(filterType)
         
         #RANGE
         if filterType =='1':
-                
-                while True: 
-                        ranger = input('What is your range (1 - '+possibleInput[-1]+'): ')
-                        try:
-                                ranger=int(ranger)
-                                if ranger<=int(possibleInput[-1]) and ranger>1:
-                                        break
-                                else:
-                                        print(TextColor.RED+'ERROR!\nEnter number from (1 - '+possibleInput[-1]+TextColor.RESET)
-                                        continue
-                        except ValueError:
-                                print(TextColor.RED+'ERROR\nEnter integer!'+TextColor.RESET)
-                                
+                rangeing(possibleInput)
+               
 
-
-
-
-
+       
         #SPECIFIC
+        print('-'*50)
         if filterType =='2':
-                while True: 
-                        specific = input('Please enter the ')
+                if keyHole == '2':
+                        for i in dictName:
+                                print(i)
 
-                print('All values with: '+titles[int(keyHole)-1]+'')
+                if keyHole == '3':
+                        for i in dictCapital:
+                                name  = dictName[i]
+                                capital = TextColor.YELLOW+dictCapital[i]+TextColor.RESET
+                                formattedString = '{} {}'.format(name,capital)
+                                print(formattedString)
+
+                       
+                        
+
+
+                
 
 
 
-def Comparing():
-        print('You have chosen '+TextColor.BLUE+'COMPARE'+TextColor.RESET)
+#def Comparing():
+       # print('You have chosen '+TextColor.BLUE+'COMPARE'+TextColor.RESET)
 
 
 
@@ -103,7 +115,7 @@ for item in data:
 
 #print(newData)
 titles = newData[0]
-dictNumber = {}
+dictName = {}
 dictCapital = {}
 dictQtyBuy = {}
 dictPriceBought = {}
@@ -113,7 +125,7 @@ dictTotalCurrentV = {}
 dictProfit = {}
 
 for item in newData: 
-        dictNumber[item[0]]=item[1]
+        dictName[item[0]]=item[1]
         dictCapital[item[0]]=item[2]
         dictQtyBuy[item[0]]=item[3]
         dictPriceBought[item[0]]=item[4]
@@ -123,7 +135,7 @@ for item in newData:
         dictProfit[item[0]]=item[8]
 
 
-print(dictNumber)
+print(dictName)
 print(dictCapital)
 print(dictQtyBuy)
 print(dictPriceBought)
@@ -137,7 +149,7 @@ print('-'*50)
 print('You have selected Function 6: Filter & Comparison')
 print('-'*50)
 
-while True:
+''''while True:
         print('1: Filter\n2: Compare')
         typeChoice = input('Please Chose one of the above: ')
         print('-'*50)
@@ -146,7 +158,7 @@ while True:
         else:
                 print('!INVALID VALUE!\nTRY AGAIN')
 
-if typeChoice =='1':
-        Filtering()
-else:
-        Comparing()
+if typeChoice =='1':'''
+Filtering()
+#else:
+        #Comparing()
