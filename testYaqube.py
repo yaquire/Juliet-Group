@@ -48,9 +48,30 @@ def Filtering():
         
         #RANGE
         if filterType =='1':
-                print('What is your range: ')
+                
+                while True: 
+                        ranger = input('What is your range (1 - '+possibleInput[-1]+'): ')
+                        try:
+                                ranger=int(ranger)
+                                if ranger<=int(possibleInput[-1]) and ranger>1:
+                                        break
+                                else:
+                                        print(TextColor.RED+'ERROR!\nEnter number from (1 - '+possibleInput[-1]+TextColor.RESET)
+                                        continue
+                        except ValueError:
+                                print(TextColor.RED+'ERROR\nEnter integer!'+TextColor.RESET)
+                                
+
+
+
+
+
         #SPECIFIC
-        
+        if filterType =='2':
+                while True: 
+                        specific = input('Please enter the ')
+
+                print('All values with: '+titles[int(keyHole)-1]+'')
 
 
 
