@@ -68,40 +68,59 @@ def Filtering():
         #SPECIFIC
         print('-'*50)
         if filterType =='2':
+
                 if keyHole == '2':
                         for i in dictName:
-                                print(i)
+                                name  = dictName[i]
+                                capital = TextColor.YELLOW+dictName[i]+TextColor.RESET
+                                formattedString = name+':'+capital
+                                print(formattedString)
 
                 if keyHole == '3':
                         for i in dictCapital:
                                 name  = dictName[i]
                                 capital = TextColor.YELLOW+dictCapital[i]+TextColor.RESET
-                                formattedString = '{} {}'.format(name,capital)
+                                formattedString = name+':'+capital
                                 print(formattedString)
-
-                       
-                        
-
-
-                
-
-
+                if keyHole == '4':
+                        for i in dictQtyBuy:
+                                name  = dictName[i]
+                                capital = TextColor.YELLOW+dictQtyBuy[i]+TextColor.RESET
+                                formattedString = name+':'+capital
+                                print(formattedString)
+                if keyHole == '5':
+                        for i in dictQtyBuy:
+                                name  = dictName[i]
+                                capital = TextColor.YELLOW+dictPriceBought[i]+TextColor.RESET
+                                formattedString = name+':'+capital
+                                print(formattedString)
+                if keyHole == '6':
+                        for i in dictCurrentPrice:
+                                name  = dictName[i]
+                                capital = TextColor.YELLOW+dictCurrentPrice[i]+TextColor.RESET
+                                formattedString = name+':'+capital
+                                print(formattedString)
+                if keyHole == '7':
+                        for i in dictTotalInvest:
+                                name  = dictName[i]
+                                capital = TextColor.YELLOW+dictTotalInvest[i]+TextColor.RESET
+                                formattedString = name+':'+capital
+                                print(formattedString)
+                if keyHole == '8':
+                        for i in dictTotalCurrentV:
+                                name  = dictName[i]
+                                capital = TextColor.YELLOW+dictTotalCurrentV[i]+TextColor.RESET
+                                formattedString = name+':'+capital
+                                print(formattedString)      
+                if keyHole == '9':
+                        for i in dictProfit:
+                                name  = dictName[i]
+                                capital = TextColor.YELLOW+dictProfit[i]+TextColor.RESET
+                                formattedString = name+':'+capital
+                                print(formattedString)         
 
 #def Comparing():
        # print('You have chosen '+TextColor.BLUE+'COMPARE'+TextColor.RESET)
-
-
-
-
-
-
-
-
-
-
-
-
-
 with open('cryptocurrencies.csv') as file:
         data = file.readlines()
 file.close
