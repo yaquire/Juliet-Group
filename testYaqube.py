@@ -5,7 +5,7 @@ class TextColor:
     YELLOW = '\033[93m'
     BLUE = '\033[94m'
     RESET = '\033[0m'  # Reset to default color
-def chosingTypeFilter(): 
+'''def chosingTypeFilter(): 
         print('-'*50)
         print('What would you like to use?')
         print('1. A Range\n2. Specific')
@@ -18,21 +18,7 @@ def chosingTypeFilter():
                         print(TextColor.RED+'ERROR'+TextColor.RESET)
                         print('Please Enter 1 or 2')
 
-        return(filterType)
-        
-
-def rangeing(possibleInput):
-        while True: 
-                        ranger = input('What is your range (2 - '+possibleInput[-1]+'): ')
-                        try:
-                                ranger=int(ranger)
-                                if ranger<=int(possibleInput[-1]-1) and ranger>1:
-                                        break
-                                else:
-                                        print(TextColor.RED+'ERROR!\nEnter number from (1 - '+possibleInput[-1]+TextColor.RESET)
-                                        continue
-                        except ValueError:
-                                print(TextColor.RED+'ERROR\nEnter integer!'+TextColor.RESET)
+        return(filterType)'''
 
 
         
@@ -56,12 +42,10 @@ def Filtering():
                         break
                 else:
                         print(TextColor.RED + "INVALID VALUE\n try again"+TextColor.RESET)
-        filterType = chosingTypeFilter()
+        filterType = '2'#chosingTypeFilter()
         #print(filterType)
         
-        #RANGE
-        if filterType =='1':
-                rangeing(possibleInput)
+        
                
 
        
@@ -153,7 +137,7 @@ for item in newData:
         dictTotalCurrentV[item[0]]=item[7]
         dictProfit[item[0]]=item[8]
 
-
+'''
 print(dictName)
 print(dictCapital)
 print(dictQtyBuy)
@@ -162,7 +146,7 @@ print(dictCurrentPrice)
 print(dictCurrentPrice)
 print(dictTotalInvest)
 print(dictTotalCurrentV)
-print(dictProfit)
+print(dictProfit)'''
 
 print('-'*50)
 print('You have selected Function 6: Filter & Comparison')
