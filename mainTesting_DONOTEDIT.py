@@ -1,5 +1,10 @@
 #csv file = 'cryptocurrencies.csv'
-
+class TextColor:
+    RED = '\033[91m'
+    GREEN = '\033[92m'
+    YELLOW = '\033[93m'
+    BLUE = '\033[94m'
+    RESET = '\033[0m'  # Reset to default color
 #USE LOCALVARIABLES ALWAYS
 #This is function 0 (StartUp) is the one that first displays
 def startUpOption():
@@ -336,10 +341,119 @@ def cryptoProfileStatement(): #DONE
 
     print('Total Investment:',totalInvestment)
 
-def cryptoFilter(): #This is the 6th function by: Yaqube
-    with open('cryptocurrencies.csv','r') as file:
-        data = file.readlines()
+#def cryptoFilter(): #This is the 6th function by: Yaqube
+def Filtering():
+        print('-'*50)
+        print('You have selected Function 6: Filter & Comparison')
+        print('-'*50)
+        with open('cryptocurrencies.csv') as file:
+            data = file.readlines()
+        file.close
 
+        newData = []
+        keyData = []
+        fullData = []
+        for item in data:
+            item = item.split(',')
+            newData.append(item)
+
+#print(newData)
+        titles = newData[0]
+        dictName = {}
+        dictCapital = {}
+        dictQtyBuy = {}
+        dictPriceBought = {}
+        dictCurrentPrice = {}
+        dictTotalInvest = {}
+        dictTotalCurrentV = {}
+        dictProfit = {}
+
+        for item in newData: 
+            dictName[item[0]]=item[1]
+            dictCapital[item[0]]=item[2]
+            dictQtyBuy[item[0]]=item[3]
+            dictPriceBought[item[0]]=item[4]
+            dictCurrentPrice[item[0]]=item[5]
+            dictTotalInvest[item[0]]=item[6]
+            dictTotalCurrentV[item[0]]=item[7]
+            dictProfit[item[0]]=item[8]
+
+        print('You have chosen '+TextColor.YELLOW+'FILTERING'+TextColor.RESET)
+        print('-'*50)
+        lengthTitles = len(titles)
+        possibleInput = []
+        for i in range(1,lengthTitles):
+                print((i+1),titles[i])
+
+                possibleInput.append(str(i+1))
+        print('-'*50)
+        while True:
+                keyHole = input("Please Enter what will be the filter:")
+                
+                if keyHole in possibleInput:
+                        break
+                else:
+                        print(TextColor.RED + "INVALID VALUE\n try again"+TextColor.RESET)
+        filterType = '2'#chosingTypeFilter()
+        #print(filterType)
+        
+        
+               
+
+       
+        #SPECIFIC
+        print('-'*50)
+        if filterType =='2':
+
+                if keyHole == '2':
+                        for i in dictName:
+                                name  = dictName[i]
+                                capital = TextColor.YELLOW+dictName[i]+TextColor.RESET
+                                formattedString = name+':'+capital
+                                print(formattedString)
+
+                if keyHole == '3':
+                        for i in dictCapital:
+                                name  = dictName[i]
+                                capital = TextColor.YELLOW+dictCapital[i]+TextColor.RESET
+                                formattedString = name+':'+capital
+                                print(formattedString)
+                if keyHole == '4':
+                        for i in dictQtyBuy:
+                                name  = dictName[i]
+                                capital = TextColor.YELLOW+dictQtyBuy[i]+TextColor.RESET
+                                formattedString = name+':'+capital
+                                print(formattedString)
+                if keyHole == '5':
+                        for i in dictQtyBuy:
+                                name  = dictName[i]
+                                capital = TextColor.YELLOW+dictPriceBought[i]+TextColor.RESET
+                                formattedString = name+':'+capital
+                                print(formattedString)
+                if keyHole == '6':
+                        for i in dictCurrentPrice:
+                                name  = dictName[i]
+                                capital = TextColor.YELLOW+dictCurrentPrice[i]+TextColor.RESET
+                                formattedString = name+':'+capital
+                                print(formattedString)
+                if keyHole == '7':
+                        for i in dictTotalInvest:
+                                name  = dictName[i]
+                                capital = TextColor.YELLOW+dictTotalInvest[i]+TextColor.RESET
+                                formattedString = name+':'+capital
+                                print(formattedString)
+                if keyHole == '8':
+                        for i in dictTotalCurrentV:
+                                name  = dictName[i]
+                                capital = TextColor.YELLOW+dictTotalCurrentV[i]+TextColor.RESET
+                                formattedString = name+':'+capital
+                                print(formattedString)      
+                if keyHole == '9':
+                        for i in dictProfit:
+                                name  = dictName[i]
+                                capital = TextColor.YELLOW+dictProfit[i]+TextColor.RESET
+                                formattedString = name+':'+capital
+                                print(formattedString)         
 
 def main():
     #Under these lines of code is the main code -------------
@@ -369,6 +483,8 @@ def main():
 
     #This runs function 6 (Crypto Scam Alert: Yaqube)
     elif choiceFunction ==6:
-        cryptoFilter()
+        
+
+        Filtering()
 
 main()
