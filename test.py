@@ -5,7 +5,7 @@ def displayingCryptos(): #DONE
     
     with open('cryptocurrencies.csv') as file:
         data = file.readlines()
-    
+    file.close()
     #this splits each element into its own part in
     newData =[]
     for item in data:
@@ -14,10 +14,6 @@ def displayingCryptos(): #DONE
         newData.append(newItem)
     
     #This is extra data for the portfolio that is not required to be shown here
-    
-
-
-
     titles = newData[0]
     dictNo = []
     dictName = []
@@ -30,7 +26,10 @@ def displayingCryptos(): #DONE
     dictTotalCurrentV = []
     dictProfit = []
     dictCurrentPortfolioSize = []
+    
+    
 
+    
     
 
     for item in newData: 
@@ -40,6 +39,43 @@ def displayingCryptos(): #DONE
             dictQtyBuy.append(item[3])
             dictPriceBought.append(item[4])
             dictCurrentPrice.append(item[5])
+            dictTotalInvest.append(item[6])
+            dictTotalCurrentV.append(item[7])
+            dictProfit.append(item[8])
+    
+    sumTotalInvestd = 0
+    for i in range(1,len(dictTotalInvest)):
+        sumTotalInvestd += int(dictTotalInvest[i])
+        
+    dictPortfolioSize.append('Invested Portfolio Size')
+    for i in range(1,len(dictTotalInvest)):
+        perSent = int(dictTotalInvest[i])/sumTotalInvestd*100
+        perSent = round(perSent,2)
+        perSent = str(perSent)+'%'
+        dictPortfolioSize.append(perSent)
+    
+    
+    dictCurrentPortfolioSize.append('Current Portfolio Size')
+    sumTotalCurrent = 0 
+    for i in range(1,len(dictTotalCurrentV)):
+        sumTotalCurrent += int(dictTotalCurrentV[i])
+    for i in range(1,len(dictTotalCurrentV)):
+        perSent = int(dictTotalCurrentV[i])/sumTotalCurrent*100
+        perSent = round(perSent,2)
+        perSent = str(perSent)+'%'
+        dictCurrentPortfolioSize.append(perSent)
+    
+
+    sumProfit =0
+    for i in range(1,len(dictProfit)):
+        sumProfit += int(dictProfit[i])
+    
+
+
+
+
+
+
     #for No
     largestString = ''
     for item in dictNo:
@@ -53,7 +89,7 @@ def displayingCryptos(): #DONE
             dictNo[i]=item
             #print(item)
         i +=1
-    print(dictNo)
+    
     #for Names
     largestString = ''
     for item in dictName:
@@ -67,7 +103,7 @@ def displayingCryptos(): #DONE
             dictName[i]=item
             #print(item)
         i +=1
-    print(dictName)
+    
 
     #for Capital
     largestString = ''
@@ -82,7 +118,7 @@ def displayingCryptos(): #DONE
             dictCapital[i]=item
             #print(item)
         i +=1
-    print(dictCapital)
+    
 
     #for QtyBought
     largestString = ''
@@ -97,7 +133,7 @@ def displayingCryptos(): #DONE
             dictQtyBuy[i]=item
             #print(item)
         i +=1
-    print(dictQtyBuy)
+   
 
     #for Price Bought
     largestString = ''
@@ -112,7 +148,7 @@ def displayingCryptos(): #DONE
             dictPriceBought[i]=item
             #print(item)
         i +=1
-    print(dictPriceBought)
+   
 
     #For Current Price 
     largestString = ''
@@ -127,26 +163,81 @@ def displayingCryptos(): #DONE
             dictCurrentPrice[i]=item
             #print(item)
         i +=1
-    print(dictCurrentPrice)
-
-    #for exztras
-    '''
+    
+    #for Total Invested
     largestString = ''
-    for item in dic:
+    for item in dictTotalInvest:
         if len(item)>len(largestString):
             largestString=item
     i = 0 
-    for item in dic:
+    for item in dictTotalInvest:
         if len(item)<len(largestString):
             dif = len(largestString)-len(item)
             item = item + (' '*dif)
-            dic[i]=item
-            print(item)
+            dictTotalInvest[i]=item
+            
         i +=1
-    print(dic)'''
+    
+    #for Porfolio Size
+    largestString = ''
+    for item in dictPortfolioSize:
+        if len(item)>len(largestString):
+            largestString=item
+    i = 0 
+    for item in dictPortfolioSize:
+        if len(item)<len(largestString):
+            dif = len(largestString)-len(item)
+            item = item + (' '*dif)
+            dictPortfolioSize[i]=item
+            
+        i +=1
+
+    #for Total Current Value
+    largestString = ''
+    for item in dictTotalCurrentV:
+        if len(item)>len(largestString):
+            largestString=item
+    i = 0 
+    for item in dictTotalCurrentV:
+        if len(item)<len(largestString):
+            dif = len(largestString)-len(item)
+            item = item + (' '*dif)
+            dictTotalCurrentV[i]=item
+            
+        i +=1    
+
+    #for Profit/Loss
+    largestString = ''
+    for item in dictProfit:
+        if len(item)>len(largestString):
+            largestString=item
+    i = 0 
+    for item in dictProfit:
+        if len(item)<len(largestString):
+            dif = len(largestString)-len(item)
+            item = item + (' '*dif)
+            dictProfit[i]=item
+            
+        i +=1
+
+    #for Current Portfolio Size
+    largestString = ''
+    for item in dictCurrentPortfolioSize:
+        if len(item)>len(largestString):
+            largestString=item
+    i = 0 
+    for item in dictCurrentPortfolioSize:
+        if len(item)<len(largestString):
+            dif = len(largestString)-len(item)
+            item = item + (' '*dif)
+            dictCurrentPortfolioSize[i]=item
+            
+        i +=1
+ 
 
     for i in range(len(dictNo)):
-        print(dictNo[i]+'|'+dictName[i]+'|'+dictCapital[i]+'|'+dictQtyBuy[i]+'|'+dictPriceBought[i]+'|'+dictCurrentPrice[i])
+        value = dictNo[i]+'|'+dictName[i]+'|'+dictCapital[i]+'|'+dictQtyBuy[i]+'|'+dictPriceBought[i]+'|'+dictCurrentPrice[i]+'|'+dictTotalInvest[i]+'|'+dictPortfolioSize[i]+'|'+dictTotalCurrentV[i]+'|'+dictProfit[i]+'|'+dictCurrentPortfolioSize[i]
+        print(value)
 
 
 
@@ -154,7 +245,7 @@ def displayingCryptos(): #DONE
 
 
     
-    file.close()
+    
 
 
 
