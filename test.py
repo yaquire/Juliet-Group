@@ -1,5 +1,5 @@
 
-def displayingCryptos(): #DONE 
+def cryptoProfileStatement(): #DONE 
 
     #The info will be taken from a txt file and the names will not be changed
     
@@ -238,15 +238,27 @@ def displayingCryptos(): #DONE
     for i in range(len(dictNo)):
         value = dictNo[i]+'|'+dictName[i]+'|'+dictCapital[i]+'|'+dictQtyBuy[i]+'|'+dictPriceBought[i]+'|'+dictCurrentPrice[i]+'|'+dictTotalInvest[i]+'|'+dictPortfolioSize[i]+'|'+dictTotalCurrentV[i]+'|'+dictProfit[i]+'|'+dictCurrentPortfolioSize[i]
         print(value)
-
-
-
-
-
-
     
     
+    value = dictNo[0]+'|'+dictName[0]+'|'+dictCapital[0]+'|'+dictQtyBuy[0]+'|'+dictPriceBought[0]+'|'+dictCurrentPrice[0]+'|'+dictTotalInvest[0]+'|'+dictPortfolioSize[0]+'|'+dictTotalCurrentV[0]+'|'+dictProfit[0]+'|'+dictCurrentPortfolioSize[0]
+    firstSum = 'Current Price'
+    totalInvested = 'Total Invested'
+    totalCurrentVal = 'Total Current Value'
+    Profit = 'Profit'
+
+    indexCurrentPrice = value.index(firstSum)
+    indexTotalInvested = value.index(totalInvested)
+    indexTotalCurrentV = value.index(totalCurrentVal)
+    indexProfit = value.index(Profit)
+
+    lastLine = ''
+    lastLine = lastLine+(' '*indexCurrentPrice)
+    lastLine = lastLine+('SUM')+(' '*(indexTotalInvested-indexCurrentPrice-3))+str(sumTotalInvestd) + (' '*(indexTotalCurrentV-indexTotalInvested-len(str(sumTotalCurrent))))+str(sumTotalCurrent)+ (' '*(indexProfit-indexTotalCurrentV-len(str(sumTotalCurrent))))+ str(sumProfit)
+    
+    
+    print(lastLine)
+   
 
 
 
-displayingCryptos()
+cryptoProfileStatement()
