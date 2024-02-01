@@ -449,7 +449,7 @@ def cryptoProfileStatement(): #DONE
     titles = newData[0]
     dictNo = []
     dictName = []
-    dictCapital = []
+    
     dictQtyBuy = []
     dictPriceBought = []
     dictCurrentPrice = []
@@ -459,15 +459,10 @@ def cryptoProfileStatement(): #DONE
     dictProfit = []
     dictCurrentPortfolioSize = []
     
-    
-
-    
-    
-
     for item in newData: 
             dictNo.append(item[0])
             dictName.append(item[1])
-            dictCapital.append(item[2])
+            
             dictQtyBuy.append(item[3])
             dictPriceBought.append(item[4])
             dictCurrentPrice.append(item[5])
@@ -537,19 +532,7 @@ def cryptoProfileStatement(): #DONE
         i +=1
     
 
-    #for Capital
-    largestString = ''
-    for item in dictCapital:
-        if len(item)>len(largestString):
-            largestString=item
-    i = 0 
-    for item in dictCapital:
-        if len(item)<len(largestString):
-            dif = len(largestString)-len(item)
-            item = item + (' '*dif)
-            dictCapital[i]=item
-            #print(item)
-        i +=1
+    
     
 
     #for QtyBought
@@ -668,11 +651,11 @@ def cryptoProfileStatement(): #DONE
  
 
     for i in range(len(dictNo)):
-        value = dictNo[i]+'|'+dictName[i]+'|'+dictCapital[i]+'|'+dictQtyBuy[i]+'|'+dictPriceBought[i]+'|'+dictCurrentPrice[i]+'|'+dictTotalInvest[i]+'|'+dictPortfolioSize[i]+'|'+dictTotalCurrentV[i]+'|'+dictProfit[i]+'|'+dictCurrentPortfolioSize[i]
+        value = dictNo[i]+'|'+dictName[i]+'|'+dictQtyBuy[i]+'|'+dictPriceBought[i]+'|'+dictCurrentPrice[i]+'|'+dictTotalInvest[i]+'|'+dictPortfolioSize[i]+'|'+dictTotalCurrentV[i]+'|'+dictProfit[i]+'|'+dictCurrentPortfolioSize[i]
         print(value)
     
     
-    value = dictNo[0]+'|'+dictName[0]+'|'+dictCapital[0]+'|'+dictQtyBuy[0]+'|'+dictPriceBought[0]+'|'+dictCurrentPrice[0]+'|'+dictTotalInvest[0]+'|'+dictPortfolioSize[0]+'|'+dictTotalCurrentV[0]+'|'+dictProfit[0]+'|'+dictCurrentPortfolioSize[0]
+    value = dictNo[0]+'|'+dictName[0]+'|'+dictQtyBuy[0]+'|'+dictPriceBought[0]+'|'+dictCurrentPrice[0]+'|'+dictTotalInvest[0]+'|'+dictPortfolioSize[0]+'|'+dictTotalCurrentV[0]+'|'+dictProfit[0]+'|'+dictCurrentPortfolioSize[0]
     firstSum = 'Current Price'
     totalInvested = 'Total Invested'
     totalCurrentVal = 'Total Current Value'
@@ -690,120 +673,231 @@ def cryptoProfileStatement(): #DONE
     
     print(lastLine)
 
-
 #def cryptoFilter(): #This is the 6th function by: Yaqube
 def Filtering():
         print('-'*50)
-        print('You have selected Function 6: Filter & Comparison')
+        print('You have selected Function 6: Filtering')
         print('-'*50)
         with open('cryptocurrencies.csv') as file:
             data = file.readlines()
         file.close
 
-        newData = []
-        keyData = []
-        fullData = []
+        newData =[]
         for item in data:
-            item = item.split(',')
-            newData.append(item)
-
-#print(newData)
+        
+            newItem=item.split(',')
+            newData.append(newItem)
+    
+    #This is extra data for the portfolio that is not required to be shown here
         titles = newData[0]
-        dictName = {}
-        dictCapital = {}
-        dictQtyBuy = {}
-        dictPriceBought = {}
-        dictCurrentPrice = {}
-        dictTotalInvest = {}
-        dictTotalCurrentV = {}
-        dictProfit = {}
+        dictNo = []
+        dictName = []
+        dictCapital = []
+        dictQtyBuy = []
+        dictPriceBought = []
+        dictCurrentPrice = []
+        dictTotalInvest = []
+        dictTotalCurrentV = []
+        dictProfit = []
+        
 
         for item in newData: 
-            dictName[item[0]]=item[1]
-            dictCapital[item[0]]=item[2]
-            dictQtyBuy[item[0]]=item[3]
-            dictPriceBought[item[0]]=item[4]
-            dictCurrentPrice[item[0]]=item[5]
-            dictTotalInvest[item[0]]=item[6]
-            dictTotalCurrentV[item[0]]=item[7]
-            dictProfit[item[0]]=item[8]
+            dictNo.append(item[0])
+            dictName.append(item[1])
+            dictCapital.append(item[2])
+            dictQtyBuy.append(item[3])
+            dictPriceBought.append(item[4])
+            dictCurrentPrice.append(item[5])
+            dictTotalInvest.append(item[6])
+            dictTotalCurrentV.append(item[7])
+            dictProfit.append(item[8])
+
+        print(dictCapital)
 
         print('You have chosen '+TextColor.YELLOW+'FILTERING'+TextColor.RESET)
         print('-'*50)
+        print(TextColor.BLUE+'You can chose more than 1!'+TextColor.RESET)
+        print('-'*50)
         lengthTitles = len(titles)
         possibleInput = []
+        chosenInput = []
         for i in range(1,lengthTitles):
                 print((i+1),titles[i])
-
                 possibleInput.append(str(i+1))
+        
+        print(TextColor.GREEN+'e ~ End Selection'+TextColor.RESET)
         print('-'*50)
         while True:
                 keyHole = input("Please Enter what will be the filter:")
+                print('-'*50)
                 
-                if keyHole in possibleInput:
+                
+                if keyHole == 'e'or keyHole=='E':
                         break
+                elif keyHole in possibleInput:
+                       chosenInput.append(keyHole)
+                       indexing = possibleInput.index(keyHole)
+                       possibleInput.pop(indexing)
+                       #print(possibleInput)
+
                 else:
                         print(TextColor.RED + "INVALID VALUE\n try again"+TextColor.RESET)
-        filterType = '2'#chosingTypeFilter()
-        #print(filterType)
-        
-        
-               
 
+                for item in possibleInput:
+                    
+                    print((item),titles[int(item)-1])
+                print(TextColor.GREEN+'e ~ End Selection'+TextColor.RESET)
+                print('-'*50)
+                    
+
+        
+    #for No
+        largestString = ''
+        for item in dictNo:
+            if len(item)>len(largestString):
+                largestString=item
+        i = 0 
+        for item in dictNo:
+            if len(item)<len(largestString):
+                dif = len(largestString)-len(item)
+                item = item + (' '*dif)
+                dictNo[i]=item
+                #print(item)
+            i +=1
+        
+        #for Names
+        largestString = ''
+        for item in dictName:
+            if len(item)>len(largestString):
+                largestString=item
+        i = 0 
+        for item in dictName:
+            if len(item)<len(largestString):
+                dif = len(largestString)-len(item)
+                item = item + (' '*dif)
+                dictName[i]=item
+                #print(item)
+            i +=1
+        
+    
+        
+        
+    
+        #for QtyBought
+        largestString = ''
+        for item in dictQtyBuy:
+            if len(item)>len(largestString):
+                largestString=item
+        i = 0 
+        for item in dictQtyBuy:
+            if len(item)<len(largestString):
+                dif = len(largestString)-len(item)
+                item = item + (' '*dif)
+                dictQtyBuy[i]=item
+                #print(item)
+            i +=1
        
-        #SPECIFIC
-        print('-'*50)
-        if filterType =='2':
-
-                if keyHole == '2':
-                        for i in dictName:
-                                name  = dictName[i]
-                                capital = TextColor.YELLOW+dictName[i]+TextColor.RESET
-                                formattedString = name+':'+capital
-                                print(formattedString)
-
-                if keyHole == '3':
-                        for i in dictCapital:
-                                name  = dictName[i]
-                                capital = TextColor.YELLOW+dictCapital[i]+TextColor.RESET
-                                formattedString = name+':'+capital
-                                print(formattedString)
-                if keyHole == '4':
-                        for i in dictQtyBuy:
-                                name  = dictName[i]
-                                capital = TextColor.YELLOW+dictQtyBuy[i]+TextColor.RESET
-                                formattedString = name+':'+capital
-                                print(formattedString)
-                if keyHole == '5':
-                        for i in dictQtyBuy:
-                                name  = dictName[i]
-                                capital = TextColor.YELLOW+dictPriceBought[i]+TextColor.RESET
-                                formattedString = name+':'+capital
-                                print(formattedString)
-                if keyHole == '6':
-                        for i in dictCurrentPrice:
-                                name  = dictName[i]
-                                capital = TextColor.YELLOW+dictCurrentPrice[i]+TextColor.RESET
-                                formattedString = name+':'+capital
-                                print(formattedString)
-                if keyHole == '7':
-                        for i in dictTotalInvest:
-                                name  = dictName[i]
-                                capital = TextColor.YELLOW+dictTotalInvest[i]+TextColor.RESET
-                                formattedString = name+':'+capital
-                                print(formattedString)
-                if keyHole == '8':
-                        for i in dictTotalCurrentV:
-                                name  = dictName[i]
-                                capital = TextColor.YELLOW+dictTotalCurrentV[i]+TextColor.RESET
-                                formattedString = name+':'+capital
-                                print(formattedString)      
-                if keyHole == '9':
-                        for i in dictProfit:
-                                name  = dictName[i]
-                                capital = TextColor.YELLOW+dictProfit[i]+TextColor.RESET
-                                formattedString = name+':'+capital
-                                print(formattedString)         
+    
+        #for Price Bought
+        largestString = ''
+        for item in dictPriceBought:
+            if len(item)>len(largestString):
+                largestString=item
+        i = 0 
+        for item in dictPriceBought:
+            if len(item)<len(largestString):
+                dif = len(largestString)-len(item)
+                item = item + (' '*dif)
+                dictPriceBought[i]=item
+                #print(item)
+            i +=1
+       
+    
+        #For Current Price 
+        largestString = ''
+        for item in dictCurrentPrice:
+            if len(item)>len(largestString):
+                largestString=item
+        i = 0 
+        for item in dictCurrentPrice:
+            if len(item)<len(largestString):
+                dif = len(largestString)-len(item)
+                item = item + (' '*dif)
+                dictCurrentPrice[i]=item
+                #print(item)
+            i +=1
+        
+        #for Total Invested
+        largestString = ''
+        for item in dictTotalInvest:
+            if len(item)>len(largestString):
+                largestString=item
+        i = 0 
+        for item in dictTotalInvest:
+            if len(item)<len(largestString):
+                dif = len(largestString)-len(item)
+                item = item + (' '*dif)
+                dictTotalInvest[i]=item
+                
+            i +=1
+        
+        
+    
+        #for Total Current Value
+        largestString = ''
+        for item in dictTotalCurrentV:
+            if len(item)>len(largestString):
+                largestString=item
+        i = 0 
+        for item in dictTotalCurrentV:
+            if len(item)<len(largestString):
+                dif = len(largestString)-len(item)
+                item = item + (' '*dif)
+                dictTotalCurrentV[i]=item
+                
+            i +=1    
+    
+        #for Profit/Loss
+        largestString = ''
+        for item in dictProfit:
+            if len(item)>len(largestString):
+                largestString=item
+        i = 0 
+        for item in dictProfit:
+            if len(item)<len(largestString):
+                dif = len(largestString)-len(item)
+                item = item + (' '*dif)
+                dictProfit[i]=item
+                
+            i +=1
+    
+        
+            
+        selectedLists = []
+        for item in chosenInput:
+            if item == '2':
+                selectedLists.append(dictName)
+            elif item == '3':
+                selectedLists.append(dictCapital)
+            elif item == '4':
+                selectedLists.append(dictQtyBuy)
+            elif item == '5':
+                selectedLists.append(dictPriceBought)
+            elif item == '6':
+                selectedLists.append(dictCurrentPrice)
+            elif item == '7':
+                selectedLists.append(dictTotalInvest)
+            elif item == '8':
+                selectedLists.append(dictTotalCurrentV)
+            elif item == '9':
+                selectedLists.append(dictProfit)
+        
+        
+        for i in range(len(dictNo)):
+            printed = dictNo[i]
+            for item in selectedLists:
+                printed+='|'+item[i]
+            print(printed)
 
 def main():
     #Under these lines of code is the main code -------------
