@@ -7,6 +7,7 @@ class TextColor:
     RESET = '\033[0m'  # Reset to default color
 #USE LOCALVARIABLES ALWAYS
 #This is function 0 (StartUp) is the one that first displays
+HistoryList =[]
 def startUpOption():
     print('-'*50)
     print('Class 02 \n1. Yaqube \n2. Rushaun')
@@ -20,7 +21,7 @@ def startUpOption():
     print('4. Remove Cryptocurrency')
     print('5. Crypto Portfolio Statement')
     print('6. Filtering '+TextColor.RED+'{YAQUBE}'+TextColor.RESET)
-    print('7. <Student input>')
+    print('7. History Log '+TextColor.RED+'{Rushaun}'+TextColor.RESET)
     print('E. Exit Main Menu')
     print('-'*50)
     #This is the error correction script for the selection of the functions 
@@ -80,6 +81,7 @@ def displayingCryptos(): #DONE
 
 
     
+
     dictNo = []
     dictName = []
     dictCapital = []
@@ -223,7 +225,25 @@ def addingCryptos(): #DONE
     #Added to a list as it is the easiest and most efficient way to add the data since the list itself cannot be added
     
     nameofCrypto = input('Enter Cryptocurrency Name: ')
-    marketCap = input('Enter the Market Cap of Crypto: ')
+    while True:
+        print('Market Cap\n High,Mid,Low')
+        marketCap = input('Enter the Market Cap of Crypto: ')
+        try:
+            marketCap= marketCap.upper()
+            if marketCap == 'HIGH' or marketCap =='MID' or marketCap == 'LOW':
+                marketCap = marketCap.lower()
+                finalMC = marketCap[0].upper()
+                for i in range(1,len(marketCap)):
+                    finalMC += marketCap[i]
+                marketCap = finalMC
+                break
+            else:
+                print(TextColor.RED+'!ERROR!\n Not Acceptable Value'+TextColor.RESET)
+        except ValueError:
+            print(TextColor.RED+'!ERROR!\n No Numbers'+TextColor.RESET)
+        
+
+
     quantityBought = int(input('Enter quantity of Crypto bought = '))
     buyInPrice = int(input('Enter the Buy In Price of Crypto = '))
     marketPrice = int(input('Enter the Market Price of Crypto = '))
@@ -234,8 +254,9 @@ def addingCryptos(): #DONE
     profitDifference = singleCurrentValue - singleTotalInvested
     
 
-    newCrypto = nameofCrypto+marketCap+str(quantityBought)+str(buyInPrice)+str(marketPrice)+str(singleTotalInvested)+str(singleCurrentValue)+str(profitDifference)
-    print(newCrypto)
+    newCrypto = nameofCrypto+','+marketCap+','+str(quantityBought)+','+str(buyInPrice)+','+str(marketPrice)+','+str(singleTotalInvested)+','+str(singleCurrentValue)+','+str(profitDifference)+'\n'
+    
+    HistoryList.append("Added " + nameofCrypto + " as part of the CryptoCurrency.")
     #Still gotta fix this end part of the code
     #this line is the one that will right the input data to the csv file
     with open('cryptocurrencies.csv','a') as file:
@@ -260,7 +281,7 @@ def ammendingCrypto():
 
         print(int(new_item[0]),"- " + new_item[1])
         optionsForInpput.append(int(new_item[0])-1)
-    print(newData)
+    
 
     print("----------------------------------------")
 
@@ -330,45 +351,76 @@ def ammendingCrypto():
     if selection == 1:
                 newName=input('(1) Enter new Name of Crypto     :')
                 newData[choice][1] = newName
+                print ("Amended Name of "+ str(newData[choice][1])+ " with " + str(newName))
+                HistoryList.append("Amended Buy inPrice of "+ str(newData[choice][1])+ " with " + str(newName))
     if selection == 2:
-                newMC=input('(2) Enter new Market Cap of Crypto     :')
+                while True:
+                    print('Market Cap\n High,Mid,Low')
+                    newMC=input('(2) Enter new Market Cap of Crypto     :')
+                    marketCap = newMC
+                    try:
+                        marketCap= marketCap.upper()
+                        if marketCap == 'HIGH' or marketCap =='MID' or marketCap == 'LOW':
+                            marketCap = marketCap.lower()
+                            finalMC = marketCap[0].upper()
+                            for i in range(1,len(marketCap)):
+                                finalMC += marketCap[i]
+                            marketCap = finalMC
+                            newMC = marketCap
+                            break
+                        else:
+                            print(TextColor.RED+'!ERROR!\n Not Acceptable Value'+TextColor.RESET)
+                    except ValueError:
+                        print(TextColor.RED+'!ERROR!\n No Numbers'+TextColor.RESET)
+
+                
+                
+                
                 newData[choice][2] = newMC
+                print ("Amended Buy inPrice of "+ str(newData[choice][1])+ " with " + str(newMC))
+                HistoryList.append("Amended Buy inPrice of "+ str(newData[choice][1])+ " with " + str(newMC))
     if selection == 3:
                 newQB=input('(3) Enter new Quatity Bought of Crypto     :')
                 newData[choice][3] = newQB
+                print ("Amended Quality Bought of "+ str(newData[choice][1])+ " with " + str(newQB))
+                HistoryList.append("Amended Quality Bought of "+ str(newData[choice][1])+ " with " + str(newQB))
     if selection == 4:
                 newBIP=input('(4) Enter new Buy In Price of Crypto     :')
                 newData[choice][4] = newBIP
+                print ("Amended Buy inPrice of "+ str(newData[choice][1])+ " with " + str(newBIP))
+                HistoryList.append("Amended Buy inPrice of "+ str(newData[choice][1])+ " with " + str(newBIP))
+
     if selection == 5:
                 newMP=input('(5) Enter new Market Price of Crypto     :')
                 newData[choice][5] = newMP
+                print ("Amended Buy inPrice of "+ str(newData[choice][1])+ " with " + str(newMP))
+                HistoryList.append("Amended Market Price of "+ str(newData[choice][1])+ " with " + str(newMP))
     #CHATGPT was used to help with this 
     innerString = 'No,Name,Capitalization,QtyBought,Bought,Price,Current Price,Total Invested, Total Current Value, Profit_Loss\n'
-    print(newData)
+    
     #ADD the no,name line back
     for item in newData:
         for thing in item:
             innerString+= str(thing)+','
         innerString = innerString[:-1]
-    print(innerString)
+    
     with open('cryptocurrencies.csv','w') as file:
         data = file.writelines('')
         data = file.writelines(innerString)
     file.close()
     print('DONE!')
-
 def removeCrypto():
     with open('cryptocurrencies.csv','r') as file:
         data = file.readlines()
     file.close
-    print(data)
+    
 
     newData = []
     for item in data: 
          item = item.split(',')
          newData.append(item)
     del newData[0]
-    print(newData)
+    
     optionsForInpput =[]
     print("-----------------------------------------")
     
@@ -424,7 +476,7 @@ def removeCrypto():
         for thing in item:
             innerString+= str(thing)+','
         innerString = innerString[:-1]
-    print(innerString)
+    
     with open('cryptocurrencies.csv','w') as file:
         data = file.writelines('')
         data = file.writelines(innerString)
@@ -899,6 +951,32 @@ def Filtering():
                 printed+='|'+item[i]
             print(printed)
 
+def HistoryLog():
+    print ("-"*50)
+    print ("You have selected 7: History Log")
+    print ("-"*50)
+    print(HistoryList)
+     
+    
+    while True:
+        Historyinput = "Press 1 to erase History or E/e to exit: "
+        selectKey = input(Historyinput)
+
+        if selectKey == 'E' or selectKey =='e':
+            break       
+        try:
+            selectKey = int(selectKey)
+            
+        except ValueError:
+            print('Invalid Option, please try again.')
+
+        if selectKey == 1:
+              HistoryList.clear() 
+              print("History List Cleared!")
+              break
+        else:
+                    print('Not an option')
+
 def main():
     #Under these lines of code is the main code -------------
     #This is the MAIN
@@ -930,5 +1008,10 @@ def main():
         
 
         Filtering()
+    elif choiceFunction ==7:
+        
+
+        HistoryLog() 
+
 
 main()
